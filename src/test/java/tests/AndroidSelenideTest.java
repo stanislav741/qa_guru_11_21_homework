@@ -20,12 +20,10 @@ public class AndroidSelenideTest extends TestBase {
     void searchSmokeTest() {
         step("Skip the welcome screen", () ->
                 $(MobileBy.id("org.wikipedia.alpha:id/fragment_onboarding_skip_button")).click());
-
         step("Use the search field", () -> {
             $(MobileBy.AccessibilityId(("Search Wikipedia"))).click();
             $(MobileBy.id("org.wikipedia.alpha:id/search_src_text")).setValue("BrowserStack");
         });
-
         step("Verify the returned list is not empty", () ->
                 $$(byClassName("android.widget.TextView")).shouldHave(sizeGreaterThan(0)));
     }
